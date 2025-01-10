@@ -15,15 +15,20 @@ const GlobalStyle = createGlobalStyle`
   --color-brand-90: #181818;
 
   /* Primary */
-  --color-primary-100: #E6E2F8;
-  --color-primary-200: #CEC4F6;
-  --color-primary-300: #B2A2F9;
-  --color-primary-400: #9178FA;
-  --color-primary-500: #7152F3;
-  --color-primary-600: #5D3DE7;
-  --color-primary-700: #4F31D0;
-  --color-primary-800: #3517B4;
-  --color-primary-900: #250C92;
+  --color-primary-100: #849cff;
+  --color-primary-200: #335bff;
+  --color-primary-300: #0f3eff;
+  --color-primary-400: #0028ca;
+  /* Primary */
+  --color-primary1-100: #E6E2F8;
+  --color-primary1-200: #CEC4F6;
+  --color-primary1-300: #B2A2F9;
+  --color-primary1-400: #9178FA;
+  --color-primary1-500: #7152F3;
+  --color-primary1-600: #5D3DE7;
+  --color-primary1-700: #4F31D0;
+  --color-primary1-800: #3517B4;
+  --color-primary1-900: #250C92;
 
   /* Secondary */
   --color-secondary-100: #E1F1BC;
@@ -90,7 +95,7 @@ const GlobalStyle = createGlobalStyle`
   --border-radius-tiny: 3px;
   --border-radius-sm: 5px;
   --border-radius-md: 7px;
-  --border-radius-lg: 9px;
+  --border-radius-lg: 50px;
 
   /* For dark mode */
   --image-grayscale: 0;
@@ -115,13 +120,14 @@ html {
 body {
   font-family: "Parkinsans", sans-serif;
   color: var(--color-grey-0);
-  background-color: var(--color-brand-90);
+  /* background-color: var(--color-brand-90); */
+  background-color:rgb(3, 2, 14);
 
   transition: color 0.3s, background-color 0.3s;
   min-height: 100vh;
   line-height: 1.5;
   font-size: 1.6rem;
-  padding: 1rem 6rem;
+  padding: 1rem 8rem;
 
 }
 
