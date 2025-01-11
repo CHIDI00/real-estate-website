@@ -87,9 +87,8 @@ const ImageContainer = styled.div`
 	background-position: center;
 	border-radius: 50px;
 
-	clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
 	opacity: 0;
-	transform: translateY(100px);
+	transform: translateY(200px);
 `;
 
 const ImageContainerContent = styled.div`
@@ -121,19 +120,20 @@ const HomeContent = () => {
 			opacity: 1,
 			y: 0,
 			duration: 3,
+			stagger: 0.2,
 			ease: "power4.inOut",
 		});
-	});
+	}, []);
 
 	useEffect(() => {
 		gsap.to(`${ImageContainer}`, {
-			clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
 			opacity: 1,
 			y: 0,
 			duration: 2,
 			ease: "power4.inOut",
 		});
-	});
+	}, []);
+
 	return (
 		<HomeStyle>
 			<UpperContent>

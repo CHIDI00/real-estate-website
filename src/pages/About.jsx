@@ -1,5 +1,11 @@
+import AboutUsContent from "../features/about us/AboutUsContent";
+
 const About = () => {
-	return <div>About</div>;
+	return (
+		<div>
+			<AboutUsContent />
+		</div>
+	);
 };
 
 export default About;
