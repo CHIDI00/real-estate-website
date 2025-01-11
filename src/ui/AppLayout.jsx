@@ -19,18 +19,24 @@ const Main = styled.main`
 	height: 100%;
 	overflow: scroll;
 	scrollbar-width: none;
-	max-width: 140rem;
+	max-width: 120rem;
+`;
+const NavContainer = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 120rem;
+	height: 5rem;
 `;
 
 const AppLayout = () => {
 	return (
 		<StyledAppLayout>
-			<Navbar />
+			<NavContainer>
+				<Navbar />
+			</NavContainer>
 			<Main>
-				{/* <Container> */}
-
 				<Outlet />
-				{/* </Container> */}
 			</Main>
 		</StyledAppLayout>
 	);

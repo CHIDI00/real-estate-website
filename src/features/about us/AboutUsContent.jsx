@@ -19,6 +19,7 @@ const AboutStyle = styled.div`
 
 const Heading = styled.h2`
 	font-size: 5rem;
+	text-align: center;
 	color: var(--color-grey-0);
 
 	opacity: 0;
@@ -262,7 +263,9 @@ const AboutUsContent = () => {
 				<ImageContainer></ImageContainer>
 				<ContentContainer>
 					<InnerContentContainer>
-						<HiCheckCircle style={{ color: "#07d553", fontSize: "8rem" }} />
+						<HiCheckCircle
+							style={{ color: "var(--color-primary-300)", fontSize: "8rem" }}
+						/>
 						<TextContent>
 							<p>Best Price</p>
 							<p>
@@ -272,7 +275,9 @@ const AboutUsContent = () => {
 						</TextContent>
 					</InnerContentContainer>
 					<InnerContentContainer>
-						<HiCheckCircle style={{ color: "#07d553", fontSize: "8rem" }} />
+						<HiCheckCircle
+							style={{ color: "var(--color-primary-300)", fontSize: "8rem" }}
+						/>
 						<TextContent>
 							<p>High-Quality Standards</p>
 							<p>
@@ -282,7 +287,9 @@ const AboutUsContent = () => {
 						</TextContent>
 					</InnerContentContainer>
 					<InnerContentContainer>
-						<HiCheckCircle style={{ color: "#07d553", fontSize: "8rem" }} />
+						<HiCheckCircle
+							style={{ color: "var(--color-primary-300)", fontSize: "8rem" }}
+						/>
 						<TextContent>
 							<p>Local market Insights</p>
 							<p>
@@ -292,7 +299,9 @@ const AboutUsContent = () => {
 						</TextContent>
 					</InnerContentContainer>
 					<InnerContentContainer>
-						<HiCheckCircle style={{ color: "#07d553", fontSize: "8rem" }} />
+						<HiCheckCircle
+							style={{ color: "var(--color-primary-300)", fontSize: "8rem" }}
+						/>
 						<TextContent>
 							<p>Trusted Reputation</p>
 							<p>
@@ -303,6 +312,14 @@ const AboutUsContent = () => {
 					</InnerContentContainer>
 				</ContentContainer>
 			</ReasonToChooseContainer>
+
+			<Heading>
+				Booking you home <br /> now made{" "}
+				<span>
+					<em>easy</em>
+				</span>
+				.
+			</Heading>
 
 			<TimelineContainer>
 				{steps.map((step, index) => (
