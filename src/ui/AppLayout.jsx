@@ -2,14 +2,15 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import styled from "styled-components";
+import Footer from "./Footer";
 
 const StyledAppLayout = styled.div`
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	width: 100%;
-	height: 98vh;
+	/* height: 98vh; */
 	gap: 2rem;
 `;
 
@@ -22,11 +23,13 @@ const Main = styled.main`
 	max-width: 120rem;
 `;
 const NavContainer = styled.div`
+	position: fixed;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 120rem;
 	height: 5rem;
+	z-index: 11;
 `;
 
 const AppLayout = () => {
@@ -38,6 +41,7 @@ const AppLayout = () => {
 			<Main>
 				<Outlet />
 			</Main>
+			<Footer />
 		</StyledAppLayout>
 	);
 };

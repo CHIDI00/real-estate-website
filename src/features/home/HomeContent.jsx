@@ -3,12 +3,9 @@ import Button from "../../ui/Button";
 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useEffect } from "react";
 
-import { Observer } from "gsap/Observer";
-import { TextPlugin } from "gsap/TextPlugin";
-import { useEffect, useRef } from "react";
-
-gsap.registerPlugin(useGSAP, Observer, TextPlugin);
+gsap.registerPlugin(useGSAP);
 
 const HomeStyle = styled.div`
 	display: flex;
@@ -16,7 +13,9 @@ const HomeStyle = styled.div`
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	height: 100%;
+	height: 70rem;
+	padding-top: 70px;
+	gap: 2rem;
 `;
 const UpperContent = styled.div`
 	display: flex;
@@ -112,8 +111,6 @@ const ImageContainerContent = styled.div`
 `;
 
 const HomeContent = () => {
-	const contentRef = useRef();
-
 	useEffect(() => {
 		gsap.to(`${UpperContent}`, {
 			clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
