@@ -4,8 +4,9 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { HiCheckCircle } from "react-icons/hi";
 import { useEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const AboutStyle = styled.div`
 	display: flex;
@@ -214,7 +215,7 @@ const AboutUsContent = () => {
 		},
 	];
 
-	useEffect(() => {
+	useGSAP(() => {
 		gsap.to(`${ImageContainer}`, {
 			clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
 			opacity: 1,
@@ -225,8 +226,8 @@ const AboutUsContent = () => {
 		});
 	}, []);
 
-	useEffect(() => {
-		gsap.to(`${InnerContentContainer}, ${Heading}, ${Step}`, {
+	useGSAP(() => {
+		gsap.to(`${InnerContentContainer}, ${Heading}, ${Step} `, {
 			opacity: 1,
 			y: 0,
 			duration: 2,
@@ -234,6 +235,18 @@ const AboutUsContent = () => {
 			ease: "power4.inOut",
 		});
 	}, []);
+
+	// ScrollTrigger.create({
+	// 	trigger: `${Step}`,
+	// 	start: "10px 90%",
+	// 	markers: true,
+	// 	toggleActions: "play none none none",
+	// 	opacity: 1,
+	// 	y: 0,
+	// 	duration: 1,
+	// 	stagger: 0.2,
+	// 	ease: "power4.inOut",
+	// });
 
 	return (
 		<AboutStyle>
