@@ -8,6 +8,7 @@ export const AboutStyle = styled.div`
 	width: 100%;
 	height: 100%;
 	padding-top: 70px;
+	background-color: transparent;
 `;
 
 export const Heading = styled.h2`
@@ -181,18 +182,3 @@ export const Spans = styled.span`
 		left: -15px;
 	}
 `;
-
-// export {
-// 	AboutStyle,
-// 	Heading,
-// 	ReasonToChooseContainer,
-// 	ImageContainer,
-// 	ContentContainer,
-// 	InnerContentContainer,
-// 	TextContent,
-// 	TimelineContainer,
-// 	Step,
-// 	Circle,
-// 	Content,
-// 	Span,
-// };

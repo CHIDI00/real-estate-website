@@ -1,6 +1,7 @@
 import React from "react";
 import { HiArrowCircleRight, HiArrowRight } from "react-icons/hi";
 import styled from "styled-components";
+import Logo from "./Logo";
 
 const NavBarStyle = styled.div`
 	display: flex;
@@ -27,13 +28,6 @@ const UlStyle = styled.ul`
 	color: var(--color-grey-50);
 `;
 
-const Logo = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 1rem;
-`;
-
 const ContactButon = styled.div`
 	display: flex;
 	justify-content: center;
@@ -47,10 +41,7 @@ const ContactButon = styled.div`
 const Navbar = () => {
 	return (
 		<NavBarStyle>
-			<Logo>
-				<img src="/realestatefakelogo.png" alt="Logo" />
-				<h3>Holton Reality</h3>
-			</Logo>
+			<Logo />
 			<NavStyle>
 				<UlStyle>
 					<li>

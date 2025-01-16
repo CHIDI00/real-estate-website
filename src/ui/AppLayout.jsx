@@ -10,14 +10,14 @@ const StyledAppLayout = styled.div`
 	justify-content: flex-start;
 	align-items: center;
 	width: 100%;
-	/* height: 98vh; */
 	gap: 2rem;
 `;
 
 const Main = styled.main`
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	/* height: 100%; */
+	height: 98vh;
 	overflow: scroll;
 	scrollbar-width: none;
 	max-width: 120rem;
@@ -40,8 +40,9 @@ const AppLayout = () => {
 			</NavContainer>
 			<Main>
 				<Outlet />
+				<Footer />
 			</Main>
-			<Footer />
+			{/* <Footer /> */}
 		</StyledAppLayout>
 	);
 };

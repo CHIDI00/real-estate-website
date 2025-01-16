@@ -1,5 +1,3 @@
-import styled from "styled-components";
-
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { HiCheckCircle } from "react-icons/hi";
@@ -22,30 +20,6 @@ import {
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const Span = styled.span`
-	&.left-container-arrow {
-		height: 0;
-		width: 0;
-		position: absolute;
-		top: 28px;
-		z-index: 1;
-		border-top: 15px solid transparent;
-		border-bottom: 15px solid transparent;
-		border-left: 15px solid var(--color-primary-300);
-		right: -15px;
-	}
-	&.right-container-arrow {
-		height: 0;
-		width: 0;
-		position: absolute;
-		top: 28px;
-		z-index: 1;
-		border-top: 15px solid transparent;
-		border-bottom: 15px solid transparent;
-		border-right: 15px solid var(--color-primary-300);
-		left: -15px;
-	}
-`;
 const AboutUsContent = () => {
 	const steps = [
 		{
@@ -94,18 +68,6 @@ const AboutUsContent = () => {
 			ease: "power4.inOut",
 		});
 	}, []);
-
-	// ScrollTrigger.create({
-	// 	trigger: `${Step}`,
-	// 	start: "10px 90%",
-	// 	markers: true,
-	// 	toggleActions: "play none none none",
-	// 	opacity: 1,
-	// 	y: 0,
-	// 	duration: 1,
-	// 	stagger: 0.2,
-	// 	ease: "power4.inOut",
-	// });
 
 	return (
 		<AboutStyle>

@@ -13,9 +13,10 @@ const HomeStyle = styled.div`
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	height: 70rem;
+	height: 75rem;
 	padding-top: 70px;
 	gap: 2rem;
+	background-color: transparent;
 `;
 const UpperContent = styled.div`
 	display: flex;
