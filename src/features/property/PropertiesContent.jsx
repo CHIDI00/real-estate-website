@@ -1,5 +1,5 @@
 import React from "react";
-import { HiArrowCircleRight } from "react-icons/hi";
+import { HiArrowCircleRight, HiEye } from "react-icons/hi";
 import styled from "styled-components";
 
 const PropertyStyle = styled.div`
@@ -31,6 +31,7 @@ const PropertyCard = styled.div`
 	display: flex;
 	flex-direction: column;
 	max-width: 40rem;
+
 	gap: 0.7rem;
 	background-color: var(--color-grey-200);
 	color: #000;
@@ -48,21 +49,27 @@ const PropertyCardImageContainer = styled.div`
 `;
 
 const PropertyCardDetails = styled.div`
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, 1fr);
-	gap: 2rem;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
 
-	h3 {
-		grid-area: 1 / 1 / 2 / 2;
-		font-size: 1.3rem;
+	div {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		font-size: 1.1rem;
+
+		p {
+			font-size: 1.1rem;
+		}
 	}
+
 	p {
-		grid-area: 1 / 2 / 2 / 3;
-		font-size: 1.3rem;
-	}
-	p:last-child {
-		grid-area: 2 / 1 / 3 / 3;
+		font-size: 1.4rem;
 	}
 `;
 
@@ -77,7 +84,15 @@ const CardButton = styled.div`
 	justify-content: space-between;
 	align-items: center;
 
-	grid-area: 3 / 1 / 4 / 3;
+	grid-area: 1 / 1 / 2 / 3;
+
+	button {
+		background-color: var(--color-primary-300);
+		color: var(--color-grey-0);
+		padding: 0.5rem 1rem;
+		border-radius: 1rem;
+		border: none;
+	}
 `;
 const PropertiesContent = () => {
 	return (
@@ -92,128 +107,308 @@ const PropertiesContent = () => {
 						</SpanArrow>
 					</PropertyCardImageContainer>
 					<PropertyCardDetails>
-						<h3>Property Name</h3>
-						<p>Property price</p>
+						<div>
+							<h3>Property Name</h3>
+							<p>Property price</p>
+						</div>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
 							esse nemo corrupti.
 						</p>
 						<CardButton>
-							<button>View more</button>
-							<button>Inspect</button>
+							<a>View more &rarr;</a>
+							<button>
+								<HiEye />
+							</button>
 						</CardButton>
 					</PropertyCardDetails>
 				</PropertyCard>
 				<PropertyCard>
 					<PropertyCardImageContainer>
 						<img src="/property-1.png" alt="" />
+						<SpanArrow>
+							<HiArrowCircleRight />
+						</SpanArrow>
 					</PropertyCardImageContainer>
 					<PropertyCardDetails>
-						<h3>Property Name</h3>
-						<p>Property price</p>
+						<div>
+							<h3>Property Name</h3>
+							<p>Property price</p>
+						</div>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
-							esse nemo corrupti repellendus possimus cum dicta aperiam,
-							consequuntur voluptatem voluptate!
+							esse nemo corrupti.
 						</p>
+						<CardButton>
+							<a>View more &rarr;</a>
+							<button>
+								<HiEye />
+							</button>
+						</CardButton>
 					</PropertyCardDetails>
 				</PropertyCard>
 				<PropertyCard>
 					<PropertyCardImageContainer>
 						<img src="/property-1.png" alt="" />
+						<SpanArrow>
+							<HiArrowCircleRight />
+						</SpanArrow>
 					</PropertyCardImageContainer>
 					<PropertyCardDetails>
-						<h3>Property Name</h3>
-						<p>Property price</p>
+						<div>
+							<h3>Property Name</h3>
+							<p>Property price</p>
+						</div>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
-							esse nemo corrupti repellendus possimus cum dicta aperiam,
-							consequuntur voluptatem voluptate!
+							esse nemo corrupti.
 						</p>
+						<CardButton>
+							<a>View more &rarr;</a>
+							<button>
+								<HiEye />
+							</button>
+						</CardButton>
 					</PropertyCardDetails>
 				</PropertyCard>
 				<PropertyCard>
 					<PropertyCardImageContainer>
 						<img src="/property-1.png" alt="" />
+						<SpanArrow>
+							<HiArrowCircleRight />
+						</SpanArrow>
 					</PropertyCardImageContainer>
 					<PropertyCardDetails>
-						<h3>Property Name</h3>
-						<p>Property price</p>
+						<div>
+							<h3>Property Name</h3>
+							<p>Property price</p>
+						</div>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
-							esse nemo corrupti repellendus possimus cum dicta aperiam,
-							consequuntur voluptatem voluptate!
+							esse nemo corrupti.
 						</p>
+						<CardButton>
+							<a>View more &rarr;</a>
+							<button>
+								<HiEye />
+							</button>
+						</CardButton>
 					</PropertyCardDetails>
 				</PropertyCard>
 				<PropertyCard>
 					<PropertyCardImageContainer>
 						<img src="/property-1.png" alt="" />
+						<SpanArrow>
+							<HiArrowCircleRight />
+						</SpanArrow>
 					</PropertyCardImageContainer>
 					<PropertyCardDetails>
-						<h3>Property Name</h3>
-						<p>Property price</p>
+						<div>
+							<h3>Property Name</h3>
+							<p>Property price</p>
+						</div>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
-							esse nemo corrupti repellendus possimus cum dicta aperiam,
-							consequuntur voluptatem voluptate!
+							esse nemo corrupti.
 						</p>
+						<CardButton>
+							<a>View more &rarr;</a>
+							<button>
+								<HiEye />
+							</button>
+						</CardButton>
 					</PropertyCardDetails>
 				</PropertyCard>
 				<PropertyCard>
 					<PropertyCardImageContainer>
 						<img src="/property-1.png" alt="" />
+						<SpanArrow>
+							<HiArrowCircleRight />
+						</SpanArrow>
 					</PropertyCardImageContainer>
 					<PropertyCardDetails>
-						<h3>Property Name</h3>
-						<p>Property price</p>
+						<div>
+							<h3>Property Name</h3>
+							<p>Property price</p>
+						</div>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
-							esse nemo corrupti repellendus possimus cum dicta aperiam,
-							consequuntur voluptatem voluptate!
+							esse nemo corrupti.
 						</p>
+						<CardButton>
+							<a>View more &rarr;</a>
+							<button>
+								<HiEye />
+							</button>
+						</CardButton>
 					</PropertyCardDetails>
 				</PropertyCard>
 				<PropertyCard>
 					<PropertyCardImageContainer>
 						<img src="/property-1.png" alt="" />
+						<SpanArrow>
+							<HiArrowCircleRight />
+						</SpanArrow>
 					</PropertyCardImageContainer>
 					<PropertyCardDetails>
-						<h3>Property Name</h3>
-						<p>Property price</p>
+						<div>
+							<h3>Property Name</h3>
+							<p>Property price</p>
+						</div>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
-							esse nemo corrupti repellendus possimus cum dicta aperiam,
-							consequuntur voluptatem voluptate!
+							esse nemo corrupti.
 						</p>
+						<CardButton>
+							<a>View more &rarr;</a>
+							<button>
+								<HiEye />
+							</button>
+						</CardButton>
 					</PropertyCardDetails>
 				</PropertyCard>
 				<PropertyCard>
 					<PropertyCardImageContainer>
 						<img src="/property-1.png" alt="" />
+						<SpanArrow>
+							<HiArrowCircleRight />
+						</SpanArrow>
 					</PropertyCardImageContainer>
 					<PropertyCardDetails>
-						<h3>Property Name</h3>
-						<p>Property price</p>
+						<div>
+							<h3>Property Name</h3>
+							<p>Property price</p>
+						</div>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
-							esse nemo corrupti repellendus possimus cum dicta aperiam,
-							consequuntur voluptatem voluptate!
+							esse nemo corrupti.
 						</p>
+						<CardButton>
+							<a>View more &rarr;</a>
+							<button>
+								<HiEye />
+							</button>
+						</CardButton>
 					</PropertyCardDetails>
 				</PropertyCard>
 				<PropertyCard>
 					<PropertyCardImageContainer>
 						<img src="/property-1.png" alt="" />
+						<SpanArrow>
+							<HiArrowCircleRight />
+						</SpanArrow>
 					</PropertyCardImageContainer>
 					<PropertyCardDetails>
-						<h3>Property Name</h3>
-						<p>Property price</p>
+						<div>
+							<h3>Property Name</h3>
+							<p>Property price</p>
+						</div>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
-							esse nemo corrupti repellendus possimus cum dicta aperiam,
-							consequuntur voluptatem voluptate!
+							esse nemo corrupti.
 						</p>
+						<CardButton>
+							<a>View more &rarr;</a>
+							<button>
+								<HiEye />
+							</button>
+						</CardButton>
+					</PropertyCardDetails>
+				</PropertyCard>
+				<PropertyCard>
+					<PropertyCardImageContainer>
+						<img src="/property-1.png" alt="" />
+						<SpanArrow>
+							<HiArrowCircleRight />
+						</SpanArrow>
+					</PropertyCardImageContainer>
+					<PropertyCardDetails>
+						<div>
+							<h3>Property Name</h3>
+							<p>Property price</p>
+						</div>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
+							esse nemo corrupti.
+						</p>
+						<CardButton>
+							<a>View more &rarr;</a>
+							<button>
+								<HiEye />
+							</button>
+						</CardButton>
+					</PropertyCardDetails>
+				</PropertyCard>
+				<PropertyCard>
+					<PropertyCardImageContainer>
+						<img src="/property-1.png" alt="" />
+						<SpanArrow>
+							<HiArrowCircleRight />
+						</SpanArrow>
+					</PropertyCardImageContainer>
+					<PropertyCardDetails>
+						<div>
+							<h3>Property Name</h3>
+							<p>Property price</p>
+						</div>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
+							esse nemo corrupti.
+						</p>
+						<CardButton>
+							<a>View more &rarr;</a>
+							<button>
+								<HiEye />
+							</button>
+						</CardButton>
+					</PropertyCardDetails>
+				</PropertyCard>
+				<PropertyCard>
+					<PropertyCardImageContainer>
+						<img src="/property-1.png" alt="" />
+						<SpanArrow>
+							<HiArrowCircleRight />
+						</SpanArrow>
+					</PropertyCardImageContainer>
+					<PropertyCardDetails>
+						<div>
+							<h3>Property Name</h3>
+							<p>Property price</p>
+						</div>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
+							esse nemo corrupti.
+						</p>
+						<CardButton>
+							<a>View more &rarr;</a>
+							<button>
+								<HiEye />
+							</button>
+						</CardButton>
+					</PropertyCardDetails>
+				</PropertyCard>
+				<PropertyCard>
+					<PropertyCardImageContainer>
+						<img src="/property-1.png" alt="" />
+						<SpanArrow>
+							<HiArrowCircleRight />
+						</SpanArrow>
+					</PropertyCardImageContainer>
+					<PropertyCardDetails>
+						<div>
+							<h3>Property Name</h3>
+							<p>Property price</p>
+						</div>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
+							esse nemo corrupti.
+						</p>
+						<CardButton>
+							<a>View more &rarr;</a>
+							<button>
+								<HiEye />
+							</button>
+						</CardButton>
 					</PropertyCardDetails>
 				</PropertyCard>
 			</PropertyCardContainer>
