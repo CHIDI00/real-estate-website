@@ -1,5 +1,6 @@
 import React from "react";
 import { HiArrowCircleRight, HiEye } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const PropertyStyle = styled.div`
@@ -92,9 +93,16 @@ const CardButton = styled.div`
 		padding: 0.5rem 1rem;
 		border-radius: 1rem;
 		border: none;
+		cursor: pointer;
+	}
+
+	a {
+		cursor: pointer;
 	}
 `;
 const PropertiesContent = () => {
+	const navigate = useNavigate();
+
 	return (
 		<PropertyStyle>
 			<PropertyStyleTitle>Featured Properties</PropertyStyleTitle>
@@ -116,7 +124,7 @@ const PropertiesContent = () => {
 							esse nemo corrupti.
 						</p>
 						<CardButton>
-							<a>View more &rarr;</a>
+							<a onClick={() => navigate("/properties/1")}>View more &rarr;</a>
 							<button>
 								<HiEye />
 							</button>

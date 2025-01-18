@@ -8,6 +8,7 @@ import Service from "./pages/Service";
 import Contact from "./pages/Contact";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
+import PropertyDetail from "./features/property/PropertyDetail";
 
 const App = () => {
 	return (
@@ -20,6 +21,7 @@ const App = () => {
 						<Route path="home" element={<Home />} />
 						<Route path="about" element={<About />} />
 						<Route path="properties" element={<Property />} />
+						<Route path="properties/:propertyId" element={<PropertyDetail />} />
 						<Route path="services" element={<Service />} />
 						<Route path="contact" element={<Contact />} />
 						<Route path="*" element={<PageNotFound />} />
