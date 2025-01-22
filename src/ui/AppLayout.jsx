@@ -9,18 +9,24 @@ const StyledAppLayout = styled.div`
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	width: 100%;
+	max-width: 120rem;
+	margin: auto;
 	gap: 2rem;
 `;
 
 const Main = styled.main`
-	display: flex;
-	flex-direction: column;
-	/* height: 100%; */
-	height: 98vh;
 	overflow: scroll;
 	scrollbar-width: none;
-	max-width: 120rem;
+	width: 100%;
+	height: 100vh;
+`;
+
+const Container = styled.div`
+	/* width: 100%; */
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
 `;
 const NavContainer = styled.div`
 	position: fixed;
@@ -39,10 +45,11 @@ const AppLayout = () => {
 				<Navbar />
 			</NavContainer>
 			<Main>
-				<Outlet />
-				<Footer />
+				<Container>
+					<Outlet />
+					<Footer />
+				</Container>
 			</Main>
-			{/* <Footer /> */}
 		</StyledAppLayout>
 	);
 };

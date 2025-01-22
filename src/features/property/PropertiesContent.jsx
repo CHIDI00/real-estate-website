@@ -1,6 +1,9 @@
 import React from "react";
 import { HiArrowCircleRight, HiEye } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+
 import styled from "styled-components";
 
 const PropertyStyle = styled.div`
@@ -38,6 +41,9 @@ const PropertyCard = styled.div`
 	color: #000;
 	border-radius: 2rem;
 	padding: 1.1rem;
+
+	opacity: 0;
+	transform: translateY(100px);
 `;
 
 const PropertyCardImageContainer = styled.div`
@@ -100,8 +106,21 @@ const CardButton = styled.div`
 		cursor: pointer;
 	}
 `;
+
+gsap.registerPlugin(useGSAP);
+
 const PropertiesContent = () => {
 	const navigate = useNavigate();
+
+	useGSAP(() => {
+		gsap.to(`${PropertyCard}`, {
+			opacity: 1,
+			y: 0,
+			duration: 2,
+			stagger: 0.2,
+			ease: "power4.inOut",
+		});
+	}, []);
 
 	return (
 		<PropertyStyle>

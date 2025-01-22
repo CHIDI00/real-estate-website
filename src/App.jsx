@@ -24,8 +24,8 @@ const App = () => {
 						<Route path="properties/:propertyId" element={<PropertyDetail />} />
 						<Route path="services" element={<Service />} />
 						<Route path="contact" element={<Contact />} />
-						<Route path="*" element={<PageNotFound />} />
 					</Route>
+					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</BrowserRouter>
 		</>
