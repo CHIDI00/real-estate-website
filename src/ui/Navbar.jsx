@@ -54,7 +54,7 @@ const Navbar = () => {
 						<a href="/properties">Properties</a>
 					</li>
 					<li>
-						<a href="/services">Services</a>
+						<a href="/shortlet">Short Let</a>
 					</li>
 					<li>
 						<a href="/contact">Contact</a>

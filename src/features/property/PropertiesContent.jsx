@@ -144,7 +144,7 @@ const PropertiesContent = () => {
 						</p>
 						<CardButton>
 							<a onClick={() => navigate("/properties/1")}>View more &rarr;</a>
-							<button>
+							<button onClick={() => navigate("/properties/inspect-form/1")}>
 								<HiEye />
 							</button>
 						</CardButton>

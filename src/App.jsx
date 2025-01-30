@@ -4,11 +4,12 @@ import GlobalStyle from "./styles/GlobalStyle";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Property from "./pages/Property";
-import Service from "./pages/Service";
+import ShortLet from "./pages/ShortLet";
 import Contact from "./pages/Contact";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
 import PropertyDetail from "./features/property/PropertyDetail";
+import InspectProperty from "./features/property/InspectProperty";
 
 const App = () => {
 	return (
@@ -22,7 +23,11 @@ const App = () => {
 						<Route path="about" element={<About />} />
 						<Route path="properties" element={<Property />} />
 						<Route path="properties/:propertyId" element={<PropertyDetail />} />
-						<Route path="services" element={<Service />} />
+						<Route
+							path="properties/inspect-form/:Id"
+							element={<InspectProperty />}
+						/>
+						<Route path="shotlet" element={<ShortLet />} />
 						<Route path="contact" element={<Contact />} />
 					</Route>
 					<Route path="*" element={<PageNotFound />} />

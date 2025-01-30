@@ -3,14 +3,14 @@ import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 gsap.registerPlugin(useGSAP);
 
 const ImageContainer = styled.div`
-	width: 100%;
+	width: 80%;
 	height: 100%;
-	border-radius: 8px;
+	/* border-radius: 8px; */
 	opacity: 0;
 	transform: translateX(-100);
 
@@ -18,7 +18,7 @@ const ImageContainer = styled.div`
 		object-fit: cover;
 		width: 100%;
 		height: 100%;
-		border-radius: 8px;
+		/* border-radius: 8px; */
 	}
 `;
 
@@ -55,16 +55,42 @@ const LeftRight = styled.span`
 	cursor: pointer;
 	z-index: 5;
 `;
+
+const ImagePreview = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 20%;
+	height: 100%;
+	gap: 0.3rem;
+	overflow-y: hidden;
+
+	img {
+		width: 100%;
+		height: 20%;
+		object-fit: cover;
+
+		${(props) =>
+			props.active === true
+				? css`
+						border: 5px solid yellow;
+				  `
+				: css`
+						border: none;
+				  `}
+	}
+`;
 const ImageSlider = ({ imageUrls }) => {
-	const [currentIndex, setCurrentIndex] = useState(1);
+	const [currentIndex, setCurrentIndex] = useState(0);
 
 	const next = () => {
-		setCurrentIndex((state) => (state += 1));
+		setCurrentIndex((state) => state + 1);
 		if (currentIndex === imageUrls.length - 1) setCurrentIndex(0);
 	};
 
 	const prev = () => {
-		setCurrentIndex((state) => (state -= 1));
+		setCurrentIndex((state) => state - 1);
 		if (currentIndex === 0) setCurrentIndex(imageUrls.length - 1);
 	};
 
@@ -78,18 +104,28 @@ const ImageSlider = ({ imageUrls }) => {
 	}, []);
 
 	return (
-		<ImageContainer>
-			<img src={imageUrls[currentIndex].propertyImage} alt="" />
-			{currentIndex > 0 && (
+		<>
+			<ImageContainer>
+				<img src={imageUrls[currentIndex].propertyImage} alt="" />
 				<LeftArrow onClick={next}>
 					<HiArrowLeft />
 				</LeftArrow>
-			)}
 
-			<LeftRight onClick={prev}>
-				<HiArrowRight />
-			</LeftRight>
-		</ImageContainer>
+				<LeftRight onClick={prev}>
+					<HiArrowRight />
+				</LeftRight>
+			</ImageContainer>
+			<ImagePreview>
+				{imageUrls.map((images, index) => (
+					<img
+						src={images.propertyImage}
+						alt=""
+						key={images.id}
+						active={index === images.currentIndex}
+					/>
+				))}
+			</ImagePreview>
+		</>
 	);
 };
 
