@@ -23,8 +23,8 @@ const Form = styled.form`
 			padding: 2.4rem 4rem;
 
 			/* Box */
-			background-color: green;
-			/* border: 1px solid var(--color-grey-100); */
+			background-color: transparent;
+			border: 1px solid var(--color-primary-400);
 			border-radius: var(--border-radius-md);
 		`}
 
@@ -34,10 +34,64 @@ const Form = styled.form`
 			width: 80rem;
 		`}
     
-  /* overflow: hidden; */
+  display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
 	font-size: 1.4rem;
 	width: 70rem;
+	gap: 2rem;
+	color: var(--color-grey-400);
 `;
+
+const FormRow = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 100%;
+`;
+
+const Label = styled.label`
+	font-weight: 500;
+	font-size: 1.2rem;
+`;
+
+const Input = styled.input`
+	width: 100%;
+	height: 4rem;
+	background-color: transparent;
+	padding: 1rem 1.7rem;
+	border: 1px solid var(--color-primary-400);
+	border-radius: var(--border-radius-md);
+`;
+
+const AddressContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+	p {
+		margin-bottom: 1rem;
+	}
+`;
+
+const DateContainer = styled.div`
+	display: flex;
+	width: 100%;
+
+	p {
+		margin-bottom: 1rem;
+	}
+`;
+
+const Address = styled.div`
+	display: grid;
+	align-items: center;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+`;
+
 const InspectProperty = () => {
 	const { formState } = useForm();
 	return (
@@ -48,38 +102,40 @@ const InspectProperty = () => {
 			<p>Fill the form below to book a date for that</p>
 
 			<Form>
-				<div>
-					<label htmlFor="">Inspector's Name</label>
-					<input type="text" placeholder="Full name" />
-				</div>
+				<FormRow>
+					<Label htmlFor="">Inspector's Name</Label>
+					<Input type="text" placeholder="Full name" />
+				</FormRow>
 
-				<div>
+				<AddressContainer>
 					<p>We would love to know where you're coming from.</p>
-					<p>Address</p>
-					<div>
-						<label htmlFor="">Street Address</label>
-						<input type="text" placeholder="Enter street address" />
-					</div>
-					<div>
-						<label htmlFor="">Town / City</label>
-						<input type="text" placeholder="Town" />
-					</div>
-					<div>
-						<label htmlFor="">State</label>
-						<input type="text" placeholder="e.g Lagos." />
-					</div>
-				</div>
-				<div>
-					<div>
-						<p>When are you visiting?</p>
-						<label htmlFor="">Date</label>
-						<input type="date" placeholder="Choose a date" />
-					</div>
-					<div>
-						<label htmlFor="">Time</label>
-						<input type="time" placeholder="Select Time" />
-					</div>
-				</div>
+					{/* <p>Address</p> */}
+					<Address>
+						<FormRow>
+							<Label htmlFor="">Street Address</Label>
+							<Input type="text" placeholder="Enter street address" />
+						</FormRow>
+						<FormRow>
+							<Label htmlFor="">Town / City</Label>
+							<Input type="text" placeholder="Town" />
+						</FormRow>
+						<FormRow>
+							<Label htmlFor="">State</Label>
+							<Input type="text" placeholder="e.g Lagos." />
+						</FormRow>
+					</Address>
+				</AddressContainer>
+				<DateContainer>
+					<p>When are you visiting?</p>
+					<FormRow>
+						<Label htmlFor="">Date</Label>
+						<Input type="date" placeholder="Choose a date" />
+					</FormRow>
+					<FormRow>
+						<Label htmlFor="">Time</Label>
+						<Input type="time" placeholder="Select Time" />
+					</FormRow>
+				</DateContainer>
 
 				<div>
 					<p>Contact</p>
