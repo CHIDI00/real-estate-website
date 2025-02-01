@@ -2,6 +2,7 @@ import React from "react";
 import { HiArrowCircleRight, HiArrowRight } from "react-icons/hi";
 import styled from "styled-components";
 import Logo from "./Logo";
+import { NavLink } from "react-router-dom";
 
 const NavBarStyle = styled.div`
 	display: flex;
@@ -28,6 +29,45 @@ const UlStyle = styled.ul`
 	color: var(--color-grey-50);
 `;
 
+const StyledNavLink = styled(NavLink)`
+	&:link,
+	&:visited {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+
+		color: var(--color-grey-100);
+		font-size: 1.5rem;
+		font-weight: 500;
+		transition: all 0.3s;
+	}
+
+	/* This works because react-router places the active class on the active NavLink */
+	&:hover {
+		color: var(--color-primary-200);
+	}
+	&:active,
+	&.active:link,
+	&.active:visited {
+		color: var(--color-primary-400);
+		/* border-bottom: 2px solid var(--color-primary-400); */
+	}
+
+	& svg {
+		width: 2rem;
+		height: 2rem;
+		color: var(--color-grey-400);
+		transition: all 0.3s;
+	}
+
+	&:hover svg,
+	&:active svg,
+	&.active:link svg,
+	&.active:visited svg {
+		color: var(--color-primary-400);
+	}
+`;
+
 const ContactButon = styled.div`
 	display: flex;
 	justify-content: center;
@@ -45,19 +85,19 @@ const Navbar = () => {
 			<NavStyle>
 				<UlStyle>
 					<li>
-						<a href="/">Home</a>
+						<StyledNavLink to="/home">Home</StyledNavLink>
 					</li>
 					<li>
-						<a href="/about">About</a>
+						<StyledNavLink to="/about">About</StyledNavLink>
 					</li>
 					<li>
-						<a href="/properties">Properties</a>
+						<StyledNavLink to="/properties">Properties</StyledNavLink>
 					</li>
 					<li>
-						<a href="/shortlet">Short Let</a>
+						<StyledNavLink to="/shortlet">Shortlet</StyledNavLink>
 					</li>
 					<li>
-						<a href="/contact">Contact</a>
+						<StyledNavLink to="/contact">Contact</StyledNavLink>
 					</li>
 				</UlStyle>
 			</NavStyle>

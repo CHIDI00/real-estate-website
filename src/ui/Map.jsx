@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const MapContainer1 = styled.div`
 	flex: 1;
-	width: 70%;
-	height: 40rem;
+	width: 85%;
+	height: 35rem;
 	margin: 20px auto;
 
 	.map {
@@ -20,7 +20,7 @@ const Map = () => {
 		<MapContainer1>
 			<MapContainer
 				center={mapPosition}
-				zoom={20}
+				zoom={16}
 				scrollWheelZoom={false}
 				className="map"
 			>

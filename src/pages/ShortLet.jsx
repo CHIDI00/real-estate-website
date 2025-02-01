@@ -1,5 +1,11 @@
+import ShortLetContent from "../features/shortLet/ShortLetContent";
+
 const ShortLet = () => {
-	return <div>Short Let</div>;
+	return (
+		<div>
+			<ShortLetContent />
+		</div>
+	);
 };
 
 export default ShortLet;

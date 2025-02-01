@@ -10,6 +10,7 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
 import PropertyDetail from "./features/property/PropertyDetail";
 import InspectProperty from "./features/property/InspectProperty";
+import ShortLetDetails from "./features/shortLet/ShortLetDetails";
 
 const App = () => {
 	return (
@@ -27,7 +28,8 @@ const App = () => {
 							path="properties/inspect-form/:Id"
 							element={<InspectProperty />}
 						/>
-						<Route path="shotlet" element={<ShortLet />} />
+						<Route path="shortlet" element={<ShortLet />} />
+						<Route path="shortlet/:shortletId" element={<ShortLetDetails />} />
 						<Route path="contact" element={<Contact />} />
 					</Route>
 					<Route path="*" element={<PageNotFound />} />
