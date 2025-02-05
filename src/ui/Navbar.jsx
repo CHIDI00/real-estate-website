@@ -1,14 +1,29 @@
 import React from "react";
-import { HiArrowCircleRight, HiArrowRight } from "react-icons/hi";
+import { HiArrowRight } from "react-icons/hi";
+import { device } from "../ui/devices";
+
 import styled from "styled-components";
 import Logo from "./Logo";
 import { NavLink } from "react-router-dom";
 
 const NavBarStyle = styled.div`
+	position: relative;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
+`;
+
+const MobileNav = styled.div`
+	position: absolute;
+	flex-direction: column;
+	background-color: var(--color-brand-90);
+	box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.1);
+	border-radius: 5px;
+	padding: 2rem;
+	top: 100%;
+	right: 0%;
+	width: 50%;
 `;
 
 const NavStyle = styled.nav`
@@ -18,10 +33,33 @@ const NavStyle = styled.nav`
 	border-radius: 30px;
 	backdrop-filter: blur(10px);
 	background-color: #ffffff1a;
+
+	@media screen and (${device.mobileL}) {
+		display: none;
+	}
+`;
+
+const MobileNavStyle = styled.nav`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 30px;
+	backdrop-filter: blur(10px);
+	/* background-color: #ffffff1a; */
 `;
 
 const UlStyle = styled.ul`
 	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem 2rem;
+	gap: 3.5rem;
+	color: var(--color-grey-50);
+`;
+
+const MobileUlStyle = styled.ul`
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 1rem 2rem;
@@ -76,6 +114,10 @@ const ContactButon = styled.div`
 	background-color: var(--color-primary-400);
 	border-radius: 50px;
 	gap: 0.7rem;
+
+	@media screen and (${device.mobileL}) {
+		display: none;
+	}
 `;
 
 const Navbar = () => {
@@ -105,6 +147,32 @@ const Navbar = () => {
 				<a href="">Contact us</a>
 				<HiArrowRight />
 			</ContactButon>
+
+			<MobileNav>
+				<MobileNavStyle>
+					<MobileUlStyle>
+						<li>
+							<StyledNavLink to="/home">Home</StyledNavLink>
+						</li>
+						<li>
+							<StyledNavLink to="/about">About</StyledNavLink>
+						</li>
+						<li>
+							<StyledNavLink to="/properties">Properties</StyledNavLink>
+						</li>
+						<li>
+							<StyledNavLink to="/shortlet">Shortlet</StyledNavLink>
+						</li>
+						<li>
+							<StyledNavLink to="/contact">Contact</StyledNavLink>
+						</li>
+					</MobileUlStyle>
+				</MobileNavStyle>
+				<ContactButon>
+					<a href="">Contact us</a>
+					<HiArrowRight />
+				</ContactButon>
+			</MobileNav>
 		</NavBarStyle>
 	);
 };

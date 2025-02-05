@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Button from "../../ui/Button";
+import { device } from "../../ui/devices";
 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -17,7 +18,15 @@ const HomeStyle = styled.div`
 	padding-top: 70px;
 	gap: 2rem;
 	background-color: transparent;
+
+	@media screen and (${device.tablet}) {
+		height: 100vh;
+	}
+	@media screen and (${device.mobileL}) {
+		height: 100vh;
+	}
 `;
+
 const UpperContent = styled.div`
 	display: flex;
 	justify-content: space-between;
@@ -28,6 +37,16 @@ const UpperContent = styled.div`
 	clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
 	opacity: 0;
 	transform: translateY(100px);
+
+	@media screen and (${device.tablet}) {
+		height: 30%;
+	}
+
+	@media screen and (${device.mobileL}) {
+		flex-direction: column;
+		height: auto;
+		gap: 1rem;
+	}
 `;
 
 const UpperleftContent = styled.div`
@@ -52,6 +71,17 @@ const UpperleftContent = styled.div`
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
+
+	@media screen and (${device.mobileL}) {
+		flex-direction: column;
+		height: auto;
+		width: 100%;
+
+		h1 {
+			font-size: 4.5rem;
+			line-height: 1;
+		}
+	}
 `;
 
 const UpperRightContent = styled.div`
@@ -64,6 +94,14 @@ const UpperRightContent = styled.div`
 	p {
 		text-align: right;
 		font-size: 1.5rem;
+	}
+
+	@media screen and (${device.mobileL}) {
+		width: 100%;
+
+		p {
+			font-size: 1.7rem;
+		}
 	}
 `;
 

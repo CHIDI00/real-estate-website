@@ -1,5 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import { device } from "../ui/devices";
+
 import Navbar from "./Navbar";
 import styled from "styled-components";
 import Footer from "./Footer";
@@ -22,12 +24,12 @@ const Main = styled.main`
 `;
 
 const Container = styled.div`
-	/* width: 100%; */
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	gap: 3rem;
 `;
+
 const NavContainer = styled.div`
 	position: fixed;
 	display: flex;
@@ -36,6 +38,15 @@ const NavContainer = styled.div`
 	width: 120rem;
 	height: 5rem;
 	z-index: 11;
+
+	@media screen and (${device.tablet}) {
+		padding: 2rem;
+		width: 100%;
+	}
+
+	@media screen and (${device.mobileL}) {
+		width: 100%;
+	}
 `;
 
 const AppLayout = () => {

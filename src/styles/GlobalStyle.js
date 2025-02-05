@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { device } from "../ui/devices";
 // import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css')
 
 // import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Roboto:wght@400;500;700;900&display=swap');
@@ -12,8 +13,8 @@ const GlobalStyle = createGlobalStyle`
   --color-brand-50: #8b8989;
   --color-brand-60: #585858;
   --color-brand-70: #363535;
-  --color-brand-80: #252525;
-  --color-brand-90: #181818;
+  --color-brand-80:rgb(6, 4, 27);
+  --color-brand-90: #03020e;
 
   /* Primary */
   --color-primary-100: #849cff;
@@ -122,13 +123,18 @@ body {
   font-family: "Parkinsans", sans-serif;
   color: var(--color-grey-0);
   /* background-color: var(--color-brand-90); */
-  background-color:rgb(3, 2, 14);
+  background-color: #03020e;
 
   transition: color 0.3s, background-color 0.3s;
   min-height: 100vh;
   line-height: 1.5;
   font-size: 1.6rem;
   padding: 1rem 8rem;
+
+    @media screen and (${device.mobileL}) {
+      /* height: 100vh; */
+      padding: 2rem;
+    }
 
 }
 
