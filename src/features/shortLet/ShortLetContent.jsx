@@ -156,7 +156,7 @@ const ShortLetContent = () => {
 
 	return (
 		<ShortletStyle>
-			<ShortletStyleTitle>Featured Properties</ShortletStyleTitle>
+			<ShortletStyleTitle>Shortlets</ShortletStyleTitle>
 			<ShortletContainer>
 				{shortletData.map((shortlet) => (
 					<ShortletCard key={shortlet.id}>

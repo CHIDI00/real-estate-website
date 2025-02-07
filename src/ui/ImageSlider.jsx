@@ -18,12 +18,11 @@ const ImageContainer = styled.div`
 		object-fit: cover;
 		width: 100%;
 		height: 100%;
-		/* border-radius: 8px; */
 	}
 
 	@media screen and (${device.tablet}) {
 		width: 100%;
-		border: 1px solid red;
+		/* border: 1px solid red; */
 	}
 `;
 

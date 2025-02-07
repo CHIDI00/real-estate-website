@@ -34,7 +34,8 @@ const PropertyStyleTitle = styled.div`
 
 const PropertyCardContainer = styled.div`
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	align-items: center;
 	width: 100%;
 	gap: 2rem;
 
@@ -51,7 +52,7 @@ const PropertyCardContainer = styled.div`
 const PropertyCard = styled.div`
 	display: flex;
 	flex-direction: column;
-	max-width: 40rem;
+	max-width: 35rem;
 
 	gap: 0.7rem;
 	background-color: var(--color-grey-200);

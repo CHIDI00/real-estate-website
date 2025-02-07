@@ -19,7 +19,7 @@ const PropertyDetailStyle = styled.div`
 	padding-top: 75px;
 	gap: 3rem;
 	background-color: transparent;
-	border: 1px solid red;
+	/* border: 1px solid red; */
 `;
 
 const PropertyImage = styled.div`
