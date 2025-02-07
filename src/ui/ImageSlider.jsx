@@ -4,13 +4,13 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 
 import styled, { css } from "styled-components";
+import { device } from "./devices";
 
 gsap.registerPlugin(useGSAP);
 
 const ImageContainer = styled.div`
 	width: 80%;
 	height: 100%;
-	/* border-radius: 8px; */
 	opacity: 0;
 	transform: translateX(-100);
 
@@ -19,6 +19,11 @@ const ImageContainer = styled.div`
 		width: 100%;
 		height: 100%;
 		/* border-radius: 8px; */
+	}
+
+	@media screen and (${device.tablet}) {
+		width: 100%;
+		border: 1px solid red;
 	}
 `;
 
@@ -79,6 +84,11 @@ const ImagePreview = styled.div`
 				: css`
 						border: none;
 				  `}
+	}
+
+	@media screen and (${device.tablet}) {
+		flex-direction: row;
+		width: 100%;
 	}
 `;
 const ImageSlider = ({ imageUrls }) => {

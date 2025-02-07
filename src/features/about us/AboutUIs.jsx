@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../ui/devices";
 
 export const AboutStyle = styled.div`
 	display: flex;
@@ -9,6 +10,10 @@ export const AboutStyle = styled.div`
 	height: 100%;
 	padding-top: 70px;
 	background-color: transparent;
+
+	@media screen and (${device.mobileL}) {
+		height: 90;
+	}
 `;
 
 export const Heading = styled.h2`
@@ -22,6 +27,13 @@ export const Heading = styled.h2`
 	span {
 		color: var(--color-primary-300);
 	}
+
+	@media screen and (${device.tablet}) {
+		font-size: 4rem;
+	}
+	@media screen and (${device.mobileL}) {
+		font-size: 3rem;
+	}
 `;
 
 export const ReasonToChooseContainer = styled.div`
@@ -30,6 +42,11 @@ export const ReasonToChooseContainer = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	margin: 4rem 0;
+
+	@media screen and (${device.tablet}) {
+		flex-direction: column;
+		gap: 2rem;
+	}
 `;
 
 export const ImageContainer = styled.div`
@@ -43,6 +60,14 @@ export const ImageContainer = styled.div`
 	clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
 	opacity: 0;
 	transform: translateY(100px);
+
+	@media screen and (${device.tablet}) {
+		width: 100%;
+	}
+
+	@media screen and (${device.mobileL}) {
+		height: 30rem;
+	}
 `;
 
 export const ContentContainer = styled.div`
@@ -52,6 +77,15 @@ export const ContentContainer = styled.div`
 	align-items: flex-start;
 	width: 50%;
 	gap: 2rem;
+
+	@media screen and (${device.tablet}) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		width: 100%;
+	}
+	@media screen and (${device.mobileL}) {
+		grid-template-columns: 1fr;
+	}
 `;
 
 export const InnerContentContainer = styled.div`
@@ -73,6 +107,25 @@ export const TextContent = styled.div`
 		font-size: 2.5rem;
 		color: var(--color-grey-400);
 	}
+
+	@media screen and (${device.tablet}) {
+		p {
+			font-size: 2.5rem;
+		}
+
+		p:nth-child(2) {
+			font-size: 2rem;
+		}
+	}
+	@media screen and (${device.mobileL}) {
+		p {
+			font-size: 2rem;
+		}
+
+		p:nth-child(2) {
+			font-size: 1.5rem;
+		}
+	}
 `;
 
 export const TimelineContainer = styled.div`
@@ -91,11 +144,22 @@ export const TimelineContainer = styled.div`
 		margin-left: -3px;
 		z-index: -1;
 	}
+
+	@media screen and (${device.mobileL}) {
+		margin: 40px auto;
+		&::after {
+			content: "";
+
+			top: 0;
+			left: 5%;
+			z-index: -1;
+		}
+	}
 `;
 
 export const Step = styled.div`
 	position: relative;
-	padding: 10px 50px;
+	padding: 10px 50px 10px 50px;
 	width: 50%;
 
 	opacity: 0;
@@ -106,6 +170,15 @@ export const Step = styled.div`
 	}
 	&.right-container {
 		left: 50%;
+	}
+
+	@media screen and (${device.mobileL}) {
+		width: 100%;
+		padding: 10px 0 10px 50px;
+
+		&.right-container {
+			left: 0;
+		}
 	}
 `;
 
@@ -127,6 +200,15 @@ export const Circle = styled.div`
 
 	&.right-container {
 		left: -20px;
+	}
+
+	@media screen and (${device.mobileL}) {
+		&.right-container {
+			left: 0px;
+		}
+		&.left-container {
+			left: 0px;
+		}
 	}
 `;
 
@@ -156,6 +238,26 @@ export const Content = styled.div`
 		font-size: 1.5rem;
 		line-height: 1.5;
 	}
+
+	@media screen and (${device.mobileL}) {
+		margin-left: 15px;
+
+		&.right-container {
+			text-align: left;
+		}
+
+		&.left-container {
+			text-align: left;
+		}
+
+		h2 {
+			font-size: 2rem;
+		}
+
+		p {
+			font-size: 1.3rem;
+		}
+	}
 `;
 
 export const Spans = styled.span`
@@ -180,5 +282,16 @@ export const Spans = styled.span`
 		border-bottom: 15px solid transparent;
 		border-right: 15px solid var(--color-primary-300);
 		left: -15px;
+	}
+
+	@media screen and (${device.mobileL}) {
+		&.left-container-arrow {
+			left: -15px;
+			border-left: none;
+			border-right: 15px solid var(--color-primary-300);
+		}
+		&.right-container-arrow {
+			left: -15px;
+		}
 	}
 `;

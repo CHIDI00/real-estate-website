@@ -1,10 +1,11 @@
-import React from "react";
-import { HiArrowRight } from "react-icons/hi";
+import React, { useState } from "react";
+import { HiArrowRight, HiMenu } from "react-icons/hi";
+import { NavLink } from "react-router-dom";
+import { HiXMark } from "react-icons/hi2";
 import { device } from "../ui/devices";
 
 import styled from "styled-components";
 import Logo from "./Logo";
-import { NavLink } from "react-router-dom";
 
 const NavBarStyle = styled.div`
 	position: relative;
@@ -18,7 +19,7 @@ const MobileNav = styled.div`
 	position: absolute;
 	flex-direction: column;
 	background-color: var(--color-brand-90);
-	box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.1);
+	box-shadow: -10px 0px 10px rgba(17, 16, 16, 0.5);
 	border-radius: 5px;
 	padding: 2rem;
 	top: 100%;
@@ -34,18 +35,13 @@ const NavStyle = styled.nav`
 	backdrop-filter: blur(10px);
 	background-color: #ffffff1a;
 
-	@media screen and (${device.mobileL}) {
+	@media screen and (${device.tablet}) {
 		display: none;
 	}
 `;
 
 const MobileNavStyle = styled.nav`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 30px;
 	backdrop-filter: blur(10px);
-	/* background-color: #ffffff1a; */
 `;
 
 const UlStyle = styled.ul`
@@ -106,7 +102,7 @@ const StyledNavLink = styled(NavLink)`
 	}
 `;
 
-const ContactButon = styled.div`
+const ContactButton = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -115,12 +111,37 @@ const ContactButon = styled.div`
 	border-radius: 50px;
 	gap: 0.7rem;
 
-	@media screen and (${device.mobileL}) {
+	@media screen and (${device.tablet}) {
 		display: none;
+	}
+`;
+const MobileContactButton = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.6rem 1.5rem;
+	background-color: var(--color-primary-400);
+	border-radius: 50px;
+	gap: 0.7rem;
+`;
+
+const MenuIcon = styled.div`
+	display: none;
+	font-size: 2.5rem;
+	cursor: pointer;
+
+	@media screen and (${device.tablet}) {
+		display: flex;
 	}
 `;
 
 const Navbar = () => {
+	const [showMenu, setShowMenu] = useState(false);
+
+	function toggleMenu() {
+		setShowMenu((showMenu) => !showMenu);
+	}
+
 	return (
 		<NavBarStyle>
 			<Logo />
@@ -143,36 +164,42 @@ const Navbar = () => {
 					</li>
 				</UlStyle>
 			</NavStyle>
-			<ContactButon>
+			<ContactButton>
 				<a href="">Contact us</a>
 				<HiArrowRight />
-			</ContactButon>
+			</ContactButton>
 
-			<MobileNav>
-				<MobileNavStyle>
-					<MobileUlStyle>
-						<li>
-							<StyledNavLink to="/home">Home</StyledNavLink>
-						</li>
-						<li>
-							<StyledNavLink to="/about">About</StyledNavLink>
-						</li>
-						<li>
-							<StyledNavLink to="/properties">Properties</StyledNavLink>
-						</li>
-						<li>
-							<StyledNavLink to="/shortlet">Shortlet</StyledNavLink>
-						</li>
-						<li>
-							<StyledNavLink to="/contact">Contact</StyledNavLink>
-						</li>
-					</MobileUlStyle>
-				</MobileNavStyle>
-				<ContactButon>
-					<a href="">Contact us</a>
-					<HiArrowRight />
-				</ContactButon>
-			</MobileNav>
+			<MenuIcon onClick={toggleMenu}>
+				{showMenu === true ? <HiXMark /> : <HiMenu />}
+			</MenuIcon>
+
+			{showMenu && (
+				<MobileNav>
+					<MobileNavStyle>
+						<MobileUlStyle>
+							<li>
+								<StyledNavLink to="/home">Home</StyledNavLink>
+							</li>
+							<li>
+								<StyledNavLink to="/about">About</StyledNavLink>
+							</li>
+							<li>
+								<StyledNavLink to="/properties">Properties</StyledNavLink>
+							</li>
+							<li>
+								<StyledNavLink to="/shortlet">Shortlet</StyledNavLink>
+							</li>
+							<li>
+								<StyledNavLink to="/contact">Contact</StyledNavLink>
+							</li>
+						</MobileUlStyle>
+					</MobileNavStyle>
+					<MobileContactButton>
+						<a href="">Contact us</a>
+						<HiArrowRight />
+					</MobileContactButton>
+				</MobileNav>
+			)}
 		</NavBarStyle>
 	);
 };

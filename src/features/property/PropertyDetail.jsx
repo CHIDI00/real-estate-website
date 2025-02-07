@@ -7,6 +7,7 @@ import {
 	HiDocumentText,
 	HiLocationMarker,
 } from "react-icons/hi";
+import { device } from "../../ui/devices";
 
 const PropertyDetailStyle = styled.div`
 	display: flex;
@@ -18,6 +19,7 @@ const PropertyDetailStyle = styled.div`
 	padding-top: 75px;
 	gap: 3rem;
 	background-color: transparent;
+	border: 1px solid red;
 `;
 
 const PropertyImage = styled.div`
@@ -29,6 +31,14 @@ const PropertyImage = styled.div`
 	width: 85%;
 	height: 50rem;
 	border-radius: 8px;
+
+	@media screen and (${device.tablet}) {
+		width: 100%;
+	}
+
+	@media screen and (${device.mobileL}) {
+		flex-direction: column;
+	}
 `;
 
 const PropertyDetailContainer = styled.div`
@@ -37,6 +47,10 @@ const PropertyDetailContainer = styled.div`
 	align-items: flex-start;
 	gap: 10rem;
 	width: 70%;
+
+	@media screen and (${device.tablet}) {
+		width: 100%;
+	}
 `;
 
 const PropertyContentLeft = styled.div`

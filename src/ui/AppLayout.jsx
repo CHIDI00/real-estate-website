@@ -33,15 +33,18 @@ const Container = styled.div`
 const NavContainer = styled.div`
 	position: fixed;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: flex-start;
+	align-items: flex-start;
 	width: 120rem;
-	height: 5rem;
+	height: 7rem;
 	z-index: 11;
 
 	@media screen and (${device.tablet}) {
+		top: -1px;
 		padding: 2rem;
 		width: 100%;
+		background-color: var(--color-brand-90);
+		margin-top: 0;
 	}
 
 	@media screen and (${device.mobileL}) {

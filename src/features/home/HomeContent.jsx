@@ -20,10 +20,16 @@ const HomeStyle = styled.div`
 	background-color: transparent;
 
 	@media screen and (${device.tablet}) {
+		justify-content: flex-start;
+		align-items: center;
 		height: 100vh;
+		padding-top: 20px;
+		gap: 0;
 	}
 	@media screen and (${device.mobileL}) {
 		height: 100vh;
+		padding-top: 60px;
+		gap: 2rem;
 	}
 `;
 
@@ -72,15 +78,19 @@ const UpperleftContent = styled.div`
 		-webkit-text-fill-color: transparent;
 	}
 
+	@media screen and (${device.tablet}) {
+		flex-direction: column;
+		height: auto;
+		width: 60%;
+
+		h1 {
+			font-size: 4.5rem;
+		}
+	}
 	@media screen and (${device.mobileL}) {
 		flex-direction: column;
 		height: auto;
 		width: 100%;
-
-		h1 {
-			font-size: 4.5rem;
-			line-height: 1;
-		}
 	}
 `;
 
@@ -96,12 +106,12 @@ const UpperRightContent = styled.div`
 		font-size: 1.5rem;
 	}
 
+	@media screen and (${device.tablet}) {
+		width: 45%;
+	}
+
 	@media screen and (${device.mobileL}) {
 		width: 100%;
-
-		p {
-			font-size: 1.7rem;
-		}
 	}
 `;
 
@@ -127,6 +137,13 @@ const ImageContainer = styled.div`
 
 	opacity: 0;
 	transform: translateY(200px);
+
+	@media screen and (${device.tablet}) {
+		height: 50%;
+	}
+	@media screen and (${device.mobileL}) {
+		height: 40%;
+	}
 `;
 
 const ImageContainerContent = styled.div`
@@ -138,7 +155,7 @@ const ImageContainerContent = styled.div`
 	justify-content: center;
 	align-items: center;
 	background-color: var(--color-grey-50);
-	padding: 1.5rem 2rem;
+	padding: 1.2rem 2rem;
 	border-radius: 20px;
 	width: 70%;
 	z-index: 11;
@@ -146,6 +163,17 @@ const ImageContainerContent = styled.div`
 	p {
 		font-size: 2rem;
 		color: var(--color-grey-900);
+		text-align: center;
+	}
+
+	@media screen and (${device.mobileL}) {
+		bottom: -20px;
+		left: 15%;
+		background-color: var(--color-brand-90);
+		p {
+			font-size: 1.5rem;
+			color: var(--color-grey-50);
+		}
 	}
 `;
 
@@ -187,8 +215,12 @@ const HomeContent = () => {
 						urban living at its finest.
 					</p>
 					<ButtonContainer>
-						<Button>Explore More</Button>
-						<Button variation="transparent">Watch Demo</Button>
+						<Button size="medium" variation="primary">
+							Explore More
+						</Button>
+						<Button size="medium" variation="transparent">
+							Watch Demo
+						</Button>
 					</ButtonContainer>
 				</UpperRightContent>
 			</UpperContent>

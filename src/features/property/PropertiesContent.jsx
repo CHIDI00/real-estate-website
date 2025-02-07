@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 
 import styled from "styled-components";
+import { device } from "../../ui/devices";
 
 const PropertyStyle = styled.div`
 	display: flex;
@@ -22,6 +23,13 @@ const PropertyStyleTitle = styled.div`
 	font-size: 5rem;
 	text-align: center;
 	color: var(--color-grey-0);
+
+	@media screen and (${device.tablet}) {
+		font-size: 4rem;
+	}
+	@media screen and (${device.mobileL}) {
+		font-size: 3rem;
+	}
 `;
 
 const PropertyCardContainer = styled.div`
@@ -29,6 +37,15 @@ const PropertyCardContainer = styled.div`
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	width: 100%;
 	gap: 2rem;
+
+	@media screen and (${device.tablet}) {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	@media screen and (${device.mobileL}) {
+		grid-template-columns: 1fr;
+		align-items: center;
+	}
 `;
 
 const PropertyCard = styled.div`
@@ -39,7 +56,7 @@ const PropertyCard = styled.div`
 	gap: 0.7rem;
 	background-color: var(--color-grey-200);
 	color: #000;
-	border-radius: 2rem;
+	border-radius: 2.5rem;
 	padding: 1.1rem;
 
 	opacity: 0;
@@ -105,6 +122,18 @@ const CardButton = styled.div`
 	a {
 		cursor: pointer;
 	}
+
+	@media screen and (${device.mobileL}) {
+		button {
+			padding: 1rem 1.5rem;
+			border-radius: 1.5rem;
+			font-size: 1.5rem;
+		}
+
+		a {
+			font-size: 1.5rem;
+		}
+	}
 `;
 
 gsap.registerPlugin(useGSAP);
@@ -128,6 +157,54 @@ const PropertiesContent = () => {
 			name: "Property Name",
 			price: "Property price",
 			propertyImage: "/property-1.png",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat esse ",
+		},
+		{
+			id: 2,
+			name: "Property Name",
+			price: "Property price",
+			propertyImage: "/property-2.png",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat esse ",
+		},
+		{
+			id: 2,
+			name: "Property Name",
+			price: "Property price",
+			propertyImage: "/property-2.png",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat esse ",
+		},
+		{
+			id: 2,
+			name: "Property Name",
+			price: "Property price",
+			propertyImage: "/property-2.png",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat esse ",
+		},
+		{
+			id: 2,
+			name: "Property Name",
+			price: "Property price",
+			propertyImage: "/property-2.png",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat esse ",
+		},
+		{
+			id: 2,
+			name: "Property Name",
+			price: "Property price",
+			propertyImage: "/property-2.png",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat esse ",
+		},
+		{
+			id: 2,
+			name: "Property Name",
+			price: "Property price",
+			propertyImage: "/property-2.png",
 			description:
 				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat esse ",
 		},
