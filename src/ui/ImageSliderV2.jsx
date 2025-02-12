@@ -16,6 +16,7 @@ const StyledSwiperContainer = styled.div`
 	display: flex;
 
 	width: 100%;
+	/* max-width: 800px; */
 	height: 100%;
 	margin: auto;
 	gap: 1rem;
@@ -53,20 +54,20 @@ const StyledSwiperContainer = styled.div`
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		border-radius: 0;
+		border-radius: 5px;
 	}
 
 	/* Navigation Buttons */
 	.swiper-button-next,
 	.swiper-button-prev {
 		color: white;
-		padding: 4rem;
-		font-size: 1rem;
+		background: rgb(255, 0, 0);
+		padding: 10px;
 		border-radius: 50%;
 		transition: 0.3s;
 
 		&:hover {
-			background: #0000004c;
+			background: black;
 		}
 	}
 
@@ -90,55 +91,73 @@ const StyledSwiperContainer = styled.div`
 		}
 	}
 
+	.custom-next {
+		right: 5px; /* Adjust position */
+	}
+
+	.custom-prev {
+		left: 5px; /* Adjust position */
+	}
+
 	/* Pagination (if used) */
 	.swiper-pagination-bullet {
 		background: white;
 	}
-
-	.swiper-slide-thumb-active {
-		border: 5px solid var(--color-primary-400);
-		transition: border 0.4s ease-in-out, transform 0.4s ease-in-out,
-			opacity 0.3s ease-in-out;
-		border-radius: 10px;
-	}
 `;
-export default function App({ imageUrls }) {
+
+export default function ImageSlider({ imageUrls }) {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
+	const [currentIndex, setCurrentIndex] = useState(0);
+
+	const swiperRef = useRef(null);
+
+	const handleNext = () => {
+		if (swiperRef.current) swiperRef.current.slideNext();
+	};
+
+	const handlePrev = () => {
+		if (swiperRef.current) swiperRef.current.slidePrev();
+	};
 
 	return (
 		<StyledSwiperContainer>
 			<Swiper
+				onSwiper={(swiper) => (swiperRef.current = swiper)}
 				style={{
 					"--swiper-navigation-color": "#fff",
 					"--swiper-pagination-color": "#fff",
+					width: "100%",
+					height: "100%",
 				}}
 				spaceBetween={10}
-				navigation={true}
+				navigation={{
+					nextEl: ".custom-next",
+					prevEl: ".custom-prev",
+				}}
 				thumbs={{ swiper: thumbsSwiper }}
 				modules={[FreeMode, Navigation, Thumbs]}
-				className="mySwiper2 "
+				className="mySwiper2"
 			>
-				{imageUrls.map((images, index) => (
-					<SwiperSlide>
-						<img
-							src={images.propertyImage}
-							alt="property-images"
-							key={images.id}
-							active={index === images.currentIndex}
-						/>
-					</SwiperSlide>
-				))}
+				<SwiperSlide>
+					<img src={imageUrls[currentIndex].propertyImage} alt="" />
+				</SwiperSlide>
+				<div className="custom-next" onClick={handleNext}>
+					➡️
+				</div>
+				<div className="custom-prev" onClick={handlePrev}>
+					⬅️
+				</div>
 			</Swiper>
 
 			<Swiper
+				direction="vertical"
 				onSwiper={setThumbsSwiper}
 				spaceBetween={10}
-				direction="vertical"
 				slidesPerView={4}
 				freeMode={true}
 				watchSlidesProgress={true}
 				modules={[FreeMode, Navigation, Thumbs]}
-				className="mySwiper right-container-arrow"
+				className="mySwiper"
 			>
 				{imageUrls.map((images, index) => (
 					<SwiperSlide>

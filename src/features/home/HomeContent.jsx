@@ -5,6 +5,7 @@ import { device } from "../../ui/devices";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useEffect } from "react";
+import { HiEye } from "react-icons/hi";
 
 gsap.registerPlugin(useGSAP);
 
@@ -14,7 +15,6 @@ const HomeStyle = styled.div`
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	height: 75rem;
 	padding-top: 70px;
 	gap: 2rem;
 	background-color: transparent;
@@ -22,12 +22,10 @@ const HomeStyle = styled.div`
 	@media screen and (${device.tablet}) {
 		justify-content: flex-start;
 		align-items: center;
-		height: 100vh;
 		padding-top: 20px;
 		gap: 0;
 	}
 	@media screen and (${device.mobileL}) {
-		height: 100vh;
 		padding-top: 60px;
 		gap: 2rem;
 	}
@@ -126,7 +124,7 @@ const ButtonContainer = styled.div`
 const ImageContainer = styled.div`
 	position: relative;
 	width: 100%;
-	height: 70%;
+	height: 55rem;
 	justify-content: center;
 	align-items: center;
 	background-image: url("/building-1.png");
@@ -134,15 +132,16 @@ const ImageContainer = styled.div`
 	background-size: cover;
 	background-position: center;
 	border-radius: 50px;
+	margin-bottom: 5rem;
 
 	opacity: 0;
 	transform: translateY(200px);
 
 	@media screen and (${device.tablet}) {
-		height: 50%;
+		height: 50rem;
 	}
 	@media screen and (${device.mobileL}) {
-		height: 40%;
+		height: 40rem;
 	}
 `;
 
@@ -177,6 +176,134 @@ const ImageContainerContent = styled.div`
 	}
 `;
 
+///////
+const PropertyCardContainer = styled.div`
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	align-items: center;
+	width: 100%;
+	gap: 2rem;
+
+	@media screen and (${device.tablet}) {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	@media screen and (${device.mobileL}) {
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+	}
+`;
+
+const PropertyCard = styled.div`
+	display: flex;
+	flex-direction: column;
+	max-width: 35rem;
+
+	gap: 0.7rem;
+	background-color: var(--color-grey-200);
+	color: #000;
+	border-radius: 2.5rem;
+	padding: 1rem;
+
+	opacity: 0;
+	transform: translateY(100px);
+
+	@media screen and (${device.mobileL}) {
+		max-width: 40rem;
+
+		gap: 0.5rem;
+		border-radius: 1.6rem;
+		padding: 0.5rem;
+	}
+`;
+
+const PropertyCardImageContainer = styled.div`
+	width: 100%;
+	position: relative;
+
+	img {
+		width: 100%;
+	}
+`;
+
+const PropertyCardDetails = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+
+	div {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		font-size: 1.1rem;
+
+		p {
+			font-size: 1.1rem;
+		}
+	}
+
+	p {
+		font-size: 1.4rem;
+	}
+
+	@media screen and (${device.mobileL}) {
+		gap: 0.7rem;
+
+		div {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			font-size: 1rem;
+
+			p {
+				font-size: 1rem;
+			}
+		}
+
+		p {
+			font-size: 1.1rem;
+		}
+	}
+`;
+
+const CardButton = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	grid-area: 1 / 1 / 2 / 3;
+
+	button {
+		background-color: var(--color-primary-300);
+		color: var(--color-grey-0);
+		padding: 0.5rem 1rem;
+		border-radius: 1rem;
+		border: none;
+		cursor: pointer;
+	}
+
+	a {
+		cursor: pointer;
+	}
+
+	@media screen and (${device.mobileL}) {
+		button {
+			padding: 0.5rem 1rem;
+			border-radius: 1.5rem;
+			font-size: 1.5rem;
+		}
+
+		a {
+			font-size: 1.2rem;
+		}
+	}
+`;
+
 const HomeContent = () => {
 	useEffect(() => {
 		gsap.to(`${UpperContent}`, {
@@ -194,6 +321,59 @@ const HomeContent = () => {
 			opacity: 1,
 			y: 0,
 			duration: 2,
+			ease: "power4.inOut",
+		});
+	}, []);
+
+	const propertyData = [
+		{
+			id: 1,
+			name: "Property Name",
+			price: "Property price",
+			propertyImage: "/property-1.png",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat esse ",
+		},
+		{
+			id: 2,
+			name: "Property Name",
+			price: "Property price",
+			propertyImage: "/property-2.png",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat esse ",
+		},
+		{
+			id: 2,
+			name: "Property Name",
+			price: "Property price",
+			propertyImage: "/property-2.png",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat esse ",
+		},
+		{
+			id: 2,
+			name: "Property Name",
+			price: "Property price",
+			propertyImage: "/property-2.png",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat esse ",
+		},
+		{
+			id: 2,
+			name: "Property Name",
+			price: "Property price",
+			propertyImage: "/property-2.png",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat esse ",
+		},
+	];
+
+	useGSAP(() => {
+		gsap.to(`${PropertyCard}`, {
+			opacity: 1,
+			y: 0,
+			duration: 2,
+			stagger: 0.2,
 			ease: "power4.inOut",
 		});
 	}, []);
@@ -230,6 +410,31 @@ const HomeContent = () => {
 					<p>Invest in your future property</p>
 				</ImageContainerContent>
 			</ImageContainer>
+
+			<PropertyCardContainer>
+				{propertyData.map((property) => (
+					<PropertyCard key={property.id}>
+						<PropertyCardImageContainer>
+							<img src={property.propertyImage} alt="" />
+						</PropertyCardImageContainer>
+						<PropertyCardDetails>
+							<div>
+								<h3>{property.name}</h3>
+								<p>{property.price}</p>
+							</div>
+							<p>{property.description}</p>
+							<CardButton>
+								<a onClick={() => navigate("/properties/1")}>
+									View more &rarr;
+								</a>
+								<button onClick={() => navigate("/properties/inspect-form/1")}>
+									<HiEye />
+								</button>
+							</CardButton>
+						</PropertyCardDetails>
+					</PropertyCard>
+				))}
+			</PropertyCardContainer>
 		</HomeStyle>
 	);
 };

@@ -2,6 +2,9 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { HiCheckCircle } from "react-icons/hi";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 import {
 	AboutStyle,
@@ -48,6 +51,10 @@ const AboutUsContent = () => {
 		},
 	];
 
+	const stepRef = useRef(null);
+	const headingRef = useRef(null);
+	const sectionRef = useRef(null);
+
 	useGSAP(() => {
 		gsap.to(`${ImageContainer}`, {
 			clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
@@ -68,6 +75,29 @@ const AboutUsContent = () => {
 			ease: "power4.inOut",
 		});
 	}, []);
+
+	// useGSAP(() => {
+	// 	if (!sectionRef.current || !headingRef.current || !stepRef.current) return;
+
+	// 	gsap.fromTo(
+	// 		[headingRef.current, stepRef.current], // Elements to animate
+	// 		{ opacity: 0, y: 50 }, // Initial state
+	// 		{
+	// 			opacity: 1,
+	// 			y: 0,
+	// 			duration: 1.5,
+	// 			stagger: 0.3,
+	// 			ease: "power4.out",
+
+	// 			scrollTrigger: {
+	// 				trigger: sectionRef.current, // Element that triggers animation
+	// 				start: "top 80%", // When to start (adjust as needed)
+	// 				end: "top 30%", // When to end (optional)
+	// 				toggleActions: "play none none none", // Play only once
+	// 			},
+	// 		}
+	// 	);
+	// }, [sectionRef]);
 
 	return (
 		<AboutStyle>
@@ -141,13 +171,13 @@ const AboutUsContent = () => {
 				.
 			</Heading>
 
-			<TimelineContainer>
+			<TimelineContainer ref={sectionRef}>
 				{steps.map((step, index) => (
 					<Step
+						ref={stepRef}
 						key={index}
 						className={index % 2 === 0 ? "left-container" : "right-container"}
 					>
-						{/* <Line isLast={index === steps.length - 1} /> */}
 						<Circle
 							className={index % 2 === 0 ? "left-container" : "right-container"}
 						>

@@ -83,8 +83,10 @@ const AddressContainer = styled.div`
 	width: 100%;
 	gap: 1rem;
 
+	
 	p {
 		margin-bottom: 1rem;
+		font-weight: 900;
 	}
 `;
 
@@ -95,6 +97,7 @@ const DateContainer = styled.div`
 
 	p {
 		margin-bottom: 1rem;
+		font-weight: 900;
 	}
 
 	div {
@@ -109,6 +112,8 @@ const Address = styled.div`
 	align-items: center;
 	grid-template-columns: 1fr 1fr;
 	gap: 2rem;
+
+
 `;
 
 const InspectProperty = () => {

@@ -245,27 +245,6 @@ const PropertiesContent = () => {
 						</PropertyCardDetails>
 					</PropertyCard>
 				))}
-				{/* <PropertyCard>
-					<PropertyCardImageContainer>
-						<img src="/property-1.png" alt="" />
-					</PropertyCardImageContainer>
-					<PropertyCardDetails>
-						<div>
-							<h3>Property Name</h3>
-							<p>Property price</p>
-						</div>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
-							esse nemo corrupti.
-						</p>
-						<CardButton>
-							<a onClick={() => navigate("/properties/1")}>View more &rarr;</a>
-							<button onClick={() => navigate("/properties/inspect-form/1")}>
-								<HiEye />
-							</button>
-						</CardButton>
-					</PropertyCardDetails>
-				</PropertyCard> */}
 			</PropertyCardContainer>
 		</PropertyStyle>
 	);

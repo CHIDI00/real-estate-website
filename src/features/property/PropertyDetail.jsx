@@ -51,6 +51,10 @@ const PropertyDetailContainer = styled.div`
 	@media screen and (${device.tablet}) {
 		width: 100%;
 	}
+	@media screen and (${device.mobileL}) {
+		width: 100%;
+		gap: 1rem;
+	}
 `;
 
 const PropertyContentLeft = styled.div`
@@ -78,6 +82,12 @@ const PropertyContent = styled.div`
 		justify-content: center;
 		align-items: center;
 		gap: 0.5rem;
+	}
+
+	@media screen and (${device.mobileL}) {
+		p {
+			font-size: 1.3rem;
+		}
 	}
 `;
 

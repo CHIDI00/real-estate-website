@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { HiArrowRight, HiMenu } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 import { HiXMark } from "react-icons/hi2";
@@ -6,6 +6,10 @@ import { device } from "../ui/devices";
 
 import styled from "styled-components";
 import Logo from "./Logo";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 const NavBarStyle = styled.div`
 	position: relative;
@@ -24,7 +28,45 @@ const MobileNav = styled.div`
 	padding: 2rem;
 	top: 100%;
 	right: 0%;
-	width: 50%;
+	width: 100%;
+	margin-top: 4rem;
+
+	-webkit-animation: swing-in-top-fwd 0.5s
+		cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+	animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+
+	@-webkit-keyframes swing-in-top-fwd {
+		0% {
+			-webkit-transform: rotateX(-100deg);
+			transform: rotateX(-100deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+			opacity: 0;
+		}
+		100% {
+			-webkit-transform: rotateX(0deg);
+			transform: rotateX(0deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+			opacity: 1;
+		}
+	}
+	@keyframes swing-in-top-fwd {
+		0% {
+			-webkit-transform: rotateX(-100deg);
+			transform: rotateX(-100deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+			opacity: 0;
+		}
+		100% {
+			-webkit-transform: rotateX(0deg);
+			transform: rotateX(0deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+			opacity: 1;
+		}
+	}
 `;
 
 const NavStyle = styled.nav`
@@ -41,7 +83,7 @@ const NavStyle = styled.nav`
 `;
 
 const MobileNavStyle = styled.nav`
-	backdrop-filter: blur(10px);
+	/* backdrop-filter: blur(10px); */
 `;
 
 const UlStyle = styled.ul`
@@ -137,10 +179,12 @@ const MenuIcon = styled.div`
 
 const Navbar = () => {
 	const [showMenu, setShowMenu] = useState(false);
+	const menuRef = useRef(null);
 
 	function toggleMenu() {
 		setShowMenu((showMenu) => !showMenu);
 	}
+
 
 	return (
 		<NavBarStyle>
@@ -170,7 +214,7 @@ const Navbar = () => {
 			</ContactButton>
 
 			<MenuIcon onClick={toggleMenu}>
-				{showMenu === true ? <HiXMark /> : <HiMenu />}
+				{showMenu ? <HiXMark /> : <HiMenu />}
 			</MenuIcon>
 
 			{showMenu && (
