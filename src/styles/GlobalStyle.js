@@ -123,7 +123,7 @@ body {
   font-family: "Parkinsans", sans-serif;
   color: var(--color-grey-0);
   /* background-color: var(--color-brand-90); */
-  background-color: #03020e;
+  background-color: var(--color-grey-200);
 
   transition: color 0.3s, background-color 0.3s;
   min-height: 100vh;

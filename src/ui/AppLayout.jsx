@@ -11,9 +11,13 @@ const StyledAppLayout = styled.div`
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	max-width: 120rem;
+	width: 120rem;
 	margin: auto;
 	gap: 2rem;
+
+	@media screen and (${device.desktopL}) {
+		width: 100%;
+	}
 `;
 
 const Main = styled.main`

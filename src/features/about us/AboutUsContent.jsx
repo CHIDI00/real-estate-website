@@ -76,29 +76,6 @@ const AboutUsContent = () => {
 		});
 	}, []);
 
-	// useGSAP(() => {
-	// 	if (!sectionRef.current || !headingRef.current || !stepRef.current) return;
-
-	// 	gsap.fromTo(
-	// 		[headingRef.current, stepRef.current], // Elements to animate
-	// 		{ opacity: 0, y: 50 }, // Initial state
-	// 		{
-	// 			opacity: 1,
-	// 			y: 0,
-	// 			duration: 1.5,
-	// 			stagger: 0.3,
-	// 			ease: "power4.out",
-
-	// 			scrollTrigger: {
-	// 				trigger: sectionRef.current, // Element that triggers animation
-	// 				start: "top 80%", // When to start (adjust as needed)
-	// 				end: "top 30%", // When to end (optional)
-	// 				toggleActions: "play none none none", // Play only once
-	// 			},
-	// 		}
-	// 	);
-	// }, [sectionRef]);
-
 	return (
 		<AboutStyle>
 			<Heading>

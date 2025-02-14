@@ -5,7 +5,9 @@ import { device } from "../../ui/devices";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useEffect } from "react";
-import { HiArrowCircleRight, HiEye } from "react-icons/hi";
+import { HiArrowCircleRight, HiEye, HiHeart } from "react-icons/hi";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 gsap.registerPlugin(useGSAP);
 
@@ -339,7 +341,7 @@ const HomeImageContainer = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	height: 60rem;
+	height: 45rem;
 	gap: 1rem;
 `;
 
@@ -366,7 +368,7 @@ const LeftImageContainerContent = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	/* gap: 5rem; */
+	gap: 2rem;
 	background-color: #ecf5fcbd;
 	backdrop-filter: blur(10px);
 	border-radius: 5px;
@@ -378,11 +380,41 @@ const PriceContainer = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
+	font-size: 3rem;
+	color: var(--color-primary-300);
 
 	p {
 		font-size: 3rem;
 		font-weight: 900;
 		color: var(--color-primary-300);
+	}
+`;
+
+const LocationContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	color: #000;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: 500;
+	text-transform: capitalize;
+
+	div {
+		width: 40%;
+	}
+
+	div:last-child {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		width: 60%;
+		gap: 1rem;
+
+		p {
+			text-align: center;
+		}
 	}
 `;
 
@@ -397,6 +429,7 @@ const RightImageContainer = styled.div`
 `;
 
 const TopContainerImage = styled.div`
+	position: relative;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -509,6 +542,10 @@ const HomeContent = () => {
 		});
 	}, []);
 
+	useEffect(() => {
+		Aos.init();
+	}, []);
+
 	return (
 		<HomeStyle>
 			<UpperContent>
@@ -562,22 +599,61 @@ const HomeContent = () => {
 								<p>$200,000</p>
 								<HiArrowCircleRight />
 							</PriceContainer>
-							<div>
+							<LocationContainer>
 								<div>20, phase 2, Lekki, Lagos State.</div>
 								<div>
-									<p>3 bedroom</p>
+									<p>3 Bedroom</p>
 									<p>4 Bathroom</p>
 									<p>4 Toilet</p>
 								</div>
-							</div>
+							</LocationContainer>
 						</LeftImageContainerContent>
 					</LeftImageContainer>
 					<RightImageContainer>
 						<TopContainerImage>
-							<div></div>
-							<div></div>
+							<div>
+								<HiHeart
+									style={{
+										position: "absolute",
+										top: "10px",
+										right: "10px",
+										color: "#ccc",
+										fontSize: "25px",
+										padding: "4px",
+										borderRadius: "50%",
+										backgroundColor: "#fffcfc76",
+									}}
+								/>
+							</div>
+							<div>
+								<HiHeart
+									style={{
+										position: "absolute",
+										top: "10px",
+										right: "10px",
+										color: "#ccc",
+										fontSize: "25px",
+										padding: "4px",
+										borderRadius: "50%",
+										backgroundColor: "#fffcfc76",
+									}}
+								/>
+							</div>
 						</TopContainerImage>
-						<BottomContainerImage></BottomContainerImage>
+						<BottomContainerImage>
+							<HiHeart
+								style={{
+									position: "absolute",
+									top: "10px",
+									right: "10px",
+									color: "#ccc",
+									fontSize: "25px",
+									padding: "4px",
+									borderRadius: "50%",
+									backgroundColor: "#fffcfc76",
+								}}
+							/>
+						</BottomContainerImage>
 					</RightImageContainer>
 				</HomeImageContainer>
 			</PeakOnProperty>
