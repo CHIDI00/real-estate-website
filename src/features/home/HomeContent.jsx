@@ -5,7 +5,7 @@ import { device } from "../../ui/devices";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useEffect } from "react";
-import { HiEye } from "react-icons/hi";
+import { HiArrowCircleRight, HiEye } from "react-icons/hi";
 
 gsap.registerPlugin(useGSAP);
 
@@ -132,7 +132,7 @@ const ImageContainer = styled.div`
 	background-size: cover;
 	background-position: center;
 	border-radius: 50px;
-	margin-bottom: 5rem;
+	margin-bottom: 10rem;
 
 	opacity: 0;
 	transform: translateY(200px);
@@ -319,10 +319,12 @@ const PeakOnPropertyContent = styled.div`
 	align-items: flex-start;
 	width: 100%;
 	gap: 10rem;
+	margin-bottom: 2rem;
 
 	h1 {
 		font-size: 5rem;
 		width: 50%;
+		line-height: 1;
 	}
 	h1 span {
 		color: var(--color-primary-400);
@@ -338,20 +340,50 @@ const HomeImageContainer = styled.div`
 	align-items: center;
 	width: 100%;
 	height: 60rem;
-	gap: 2rem;
+	gap: 1rem;
 `;
 
 const LeftImageContainer = styled.div`
 	position: relative;
 	width: 50%;
 	height: 100%;
+	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-image: url("/building-1.png");
+	background-image: url("/property-3.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 	border-radius: 10px;
+`;
+
+const LeftImageContainerContent = styled.div`
+	position: absolute;
+	left: 15%;
+	bottom: 20px;
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	/* gap: 5rem; */
+	background-color: #ecf5fcbd;
+	backdrop-filter: blur(10px);
+	border-radius: 5px;
+	padding: 1rem;
+`;
+
+const PriceContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+
+	p {
+		font-size: 3rem;
+		font-weight: 900;
+		color: var(--color-primary-300);
+	}
 `;
 
 const RightImageContainer = styled.div`
@@ -361,7 +393,7 @@ const RightImageContainer = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-start;
-	gap: 2rem;
+	gap: 1rem;
 `;
 
 const TopContainerImage = styled.div`
@@ -370,7 +402,7 @@ const TopContainerImage = styled.div`
 	align-items: center;
 	width: 100%;
 	height: 50%;
-	gap: 2rem;
+	gap: 1rem;
 
 	div {
 		position: relative;
@@ -378,11 +410,15 @@ const TopContainerImage = styled.div`
 		height: 100%;
 		justify-content: center;
 		align-items: center;
-		background-image: url("/building-1.png");
+		background-image: url("/property-4.png");
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center;
 		border-radius: 10px;
+	}
+
+	div:last-child {
+		background-image: url("/property-1.png");
 	}
 `;
 
@@ -392,7 +428,7 @@ const BottomContainerImage = styled.div`
 	height: 50%;
 	justify-content: center;
 	align-items: center;
-	background-image: url("/building-1.png");
+	background-image: url("/property-2.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -520,7 +556,22 @@ const HomeContent = () => {
 				</PeakOnPropertyContent>
 
 				<HomeImageContainer>
-					<LeftImageContainer></LeftImageContainer>
+					<LeftImageContainer>
+						<LeftImageContainerContent>
+							<PriceContainer>
+								<p>$200,000</p>
+								<HiArrowCircleRight />
+							</PriceContainer>
+							<div>
+								<div>20, phase 2, Lekki, Lagos State.</div>
+								<div>
+									<p>3 bedroom</p>
+									<p>4 Bathroom</p>
+									<p>4 Toilet</p>
+								</div>
+							</div>
+						</LeftImageContainerContent>
+					</LeftImageContainer>
 					<RightImageContainer>
 						<TopContainerImage>
 							<div></div>
