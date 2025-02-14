@@ -304,6 +304,101 @@ const CardButton = styled.div`
 	}
 `;
 
+/////
+const PeakOnProperty = styled.div`
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+`;
+
+const PeakOnPropertyContent = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	width: 100%;
+	gap: 10rem;
+
+	h1 {
+		font-size: 5rem;
+		width: 50%;
+	}
+	h1 span {
+		color: var(--color-primary-400);
+	}
+	p {
+		width: 50%;
+	}
+`;
+
+const HomeImageContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 60rem;
+	gap: 2rem;
+`;
+
+const LeftImageContainer = styled.div`
+	position: relative;
+	width: 50%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	background-image: url("/building-1.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	border-radius: 10px;
+`;
+
+const RightImageContainer = styled.div`
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 2rem;
+`;
+
+const TopContainerImage = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 50%;
+	gap: 2rem;
+
+	div {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		justify-content: center;
+		align-items: center;
+		background-image: url("/building-1.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		border-radius: 10px;
+	}
+`;
+
+const BottomContainerImage = styled.div`
+	position: relative;
+	width: 100%;
+	height: 50%;
+	justify-content: center;
+	align-items: center;
+	background-image: url("/building-1.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	border-radius: 10px;
+`;
+
 const HomeContent = () => {
 	useEffect(() => {
 		gsap.to(`${UpperContent}`, {
@@ -411,30 +506,30 @@ const HomeContent = () => {
 				</ImageContainerContent>
 			</ImageContainer>
 
-			<PropertyCardContainer>
-				{propertyData.map((property) => (
-					<PropertyCard key={property.id}>
-						<PropertyCardImageContainer>
-							<img src={property.propertyImage} alt="" />
-						</PropertyCardImageContainer>
-						<PropertyCardDetails>
-							<div>
-								<h3>{property.name}</h3>
-								<p>{property.price}</p>
-							</div>
-							<p>{property.description}</p>
-							<CardButton>
-								<a onClick={() => navigate("/properties/1")}>
-									View more &rarr;
-								</a>
-								<button onClick={() => navigate("/properties/inspect-form/1")}>
-									<HiEye />
-								</button>
-							</CardButton>
-						</PropertyCardDetails>
-					</PropertyCard>
-				))}
-			</PropertyCardContainer>
+			<PeakOnProperty>
+				<PeakOnPropertyContent>
+					<h1>
+						Discover your perfect <span>property match</span>
+					</h1>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta at
+						dolorum laboriosam voluptates dolorem eveniet fugit unde ipsa
+						asperiores perspiciatis quasi culpa, rerum ab iste sapiente nulla
+						voluptatum repellendus harum.
+					</p>
+				</PeakOnPropertyContent>
+
+				<HomeImageContainer>
+					<LeftImageContainer></LeftImageContainer>
+					<RightImageContainer>
+						<TopContainerImage>
+							<div></div>
+							<div></div>
+						</TopContainerImage>
+						<BottomContainerImage></BottomContainerImage>
+					</RightImageContainer>
+				</HomeImageContainer>
+			</PeakOnProperty>
 		</HomeStyle>
 	);
 };

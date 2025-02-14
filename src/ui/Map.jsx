@@ -1,6 +1,7 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { useState } from "react";
 import styled from "styled-components";
+import { device } from "./devices";
 
 const MapContainer1 = styled.div`
 	flex: 1;
@@ -10,6 +11,11 @@ const MapContainer1 = styled.div`
 
 	.map {
 		height: 100%;
+	}
+
+	@media screen and (${device.mobileL}) {
+		margin: 0;
+		width: 100%;
 	}
 `;
 const Map = () => {

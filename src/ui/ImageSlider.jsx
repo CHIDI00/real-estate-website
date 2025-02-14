@@ -11,6 +11,7 @@ import "swiper/css/thumbs";
 // import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import styled from "styled-components";
+import { device } from "../ui/devices";
 
 const StyledSwiperContainer = styled.div`
 	display: flex;
@@ -20,6 +21,10 @@ const StyledSwiperContainer = styled.div`
 	margin: auto;
 	gap: 1rem;
 
+	@media screen and (${device.mobileL}) {
+		flex-direction: column;
+	}
+
 	/* Style the main Swiper */
 	.mySwiper2 {
 		height: 100%;
@@ -27,6 +32,10 @@ const StyledSwiperContainer = styled.div`
 		border-radius: 10px;
 		overflow: hidden;
 		box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+		@media screen and (${device.mobileL}) {
+			width: 100%;
+		}
 	}
 
 	/* Style the thumbnails */
@@ -37,6 +46,12 @@ const StyledSwiperContainer = styled.div`
 		align-items: center;
 		width: 20%;
 		height: 100%;
+
+		@media screen and (${device.mobileL}) {
+			width: 100%;
+			flex-direction: row;
+			height: 20%;
+		}
 	}
 
 	.swiper-slide {
@@ -61,7 +76,6 @@ const StyledSwiperContainer = styled.div`
 	.swiper-button-prev {
 		color: white;
 		padding: 4rem;
-		font-size: 1rem;
 		border-radius: 50%;
 		transition: 0.3s;
 
@@ -133,11 +147,11 @@ export default function App({ imageUrls }) {
 			<Swiper
 				onSwiper={setThumbsSwiper}
 				spaceBetween={10}
-				direction="vertical"
-				slidesPerView={4}
+				slidesPerView={window.innerWidth <= 500 ? 3 : 4}
 				freeMode={true}
 				watchSlidesProgress={true}
 				modules={[FreeMode, Navigation, Thumbs]}
+				direction={window.innerWidth <= 500 ? "horizontal" : "vertical"}
 				className="mySwiper right-container-arrow"
 			>
 				{imageUrls.map((images, index) => (
